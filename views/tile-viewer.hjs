@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+{{#tile}}
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} | Custom Tile</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="/assets/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="/assets/zepto.min.js"></script>
+  <script type="text/javascript" src="/assets/hotloader.js"></script>
+  <script>
+    $(function() {
+      'use strict';
+
+      var w = parseInt(localStorage.tileViewerWidth, 10) || 400;
+      var h = parseInt(localStorage.tileViewerHeight, 10) || 400;
+      var useMin = !!localStorage.tileViewerUseMin || false;
+
+      var updateTileSize = function() {
+        $('#tileDiv').css({
+          top: '50%',
+          left: '50%',
+          marginLeft: (-w/2) + 'px',
+          marginTop: (25 - h/2) + 'px',
+          width: w + 'px',
+          height: h + 'px',
+          opacity: 1
+        });
+
+        $('#width').val(w);
+        $('#height').val(h);
+      };
+
+      var updateMinimized = function() {
+        $('#norm').toggleClass('active', !useMin);
+        $('#min').toggleClass('active', useMin);
+        $('#iframe').get(0).src = '/tile/{{id}}' + (useMin ? '?useMin=true' : '');
+      }
+
+      updateTileSize();
+      updateMinimized();
+
+      $(document).on('mouseup', function() {
+        $('#width').focus().get(0).select();
+      })
+
+      $('#width, #height').on('mouseup', function(e) { e.stopPropagation(); });
+      $('#width').on('input', function(e) {
+        var val = parseInt(e.target.value, 10) || 0
+        if (val >= 100) {
+          w = val;
+          localStorage.tileViewerWidth = val;
+          updateTileSize();
+        }
+      }).focus().get(0).select();
+      $('#height').on('input', function(e) {
+        var val = parseInt(e.target.value, 10) || 0
+        if (val >= 100) {
+          h = val;
+          localStorage.tileViewerHeight = val;
+          updateTileSize();
+        }
+      });
+
+      $('#norm').on('click', function() {
+        useMin = false;
+        delete localStorage.tileViewerUseMin;
+        updateMinimized();
+      });
+
+      $('#min').on('click', function() {
+        useMin = true;
+        localStorage.tileViewerUseMin = '1';
+        updateMinimized();
+      });
+    })
+  </script>
+  <style>
+    body {
+      background-color: #444;
+    }
+    iframe {
+      background-color: white;
+      box-shadow: 0 0 30px 0 rgba(0,0,0,0.4);
+    }
+    #width, #height {
+      width: 80px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">{{name}}</a>
+      </div>
+      <form class="navbar-form navbar-right">
+        <div class="btn-group">
+          <button id="norm" type="button" class="btn btn-default">Development code</button>
+          <button id="min" type="button" class="btn btn-default">Minimized</button>
+        </div>
+        <div class="form-group">
+          <input type="number" min="100" step="10" class="form-control" placeholder="Width" id="width">
+        </div>
+        <label>x</label>
+        <div class="form-group">
+          <input type="number" min="100" step="10" class="form-control" placeholder="Height" id="height">
+        </div>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="tileDiv" style="position: absolute; opacity: 0;">
+      <iframe id="iframe" frameborder="0" style="width: 100%; height: 100%; display: block;"></iframe>
+    </div>
+  </div>
+</body>
+{{/tile}}
+</html>
