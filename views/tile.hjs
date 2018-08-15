@@ -44,7 +44,6 @@
             delete memStorage[key];
           }
         },
-        enums: {{{enums}}},
         props: {{{props}}},
         onLoad: function() {
           sendCommand('loaded');

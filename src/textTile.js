@@ -1,7 +1,8 @@
 const api = window.tiledAPI;
 
 const p = (px) => {
-  return `${(api.props.$scale * (100 * px / api.props.$screen.width)).toFixed(3)}em`;
+  const scale = 1
+  return `${(scale * (100 * px / window.innnerWidth)).toFixed(3)}em`;
 }
 
 const TextAnim =
@@ -65,7 +66,7 @@ const getRemoteData = (url) => {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         const parts = mapAlt(api.props.text.split(/\{\{|\}\}/g), x => x, x => '{{' + x + '}}');
-        callback(parts, xhr.response)
+        callback(parts, xhr.response);
       }
     }
 

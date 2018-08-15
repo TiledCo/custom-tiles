@@ -18,9 +18,9 @@ try {
 
   tile.addEventListener('click', function() {
     $.runAction({
-      type: $.enums.TileActionType.LINK,
+      type: 'l',
       target: '57239d46552d94e0063a9348',
-      transition: $.enums.TileActionTransition.SLIDE
+      transition: 's'
     });
   }, false)
 

@@ -850,7 +850,7 @@
 				},
 				"text": {
 					"type": "string",
-					"default": "Example: Access remote data --> {{example}}"
+					"default": "{{recipientName}}'s address is \"{{address}}\""
 				},
 				"defaultText": {
 					"type": "string",
