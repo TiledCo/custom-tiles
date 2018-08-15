@@ -130,7 +130,6 @@ app.get('/tile/:id', (req, res, next) => {
   const tile = tiles.find(t => t.id === req.params.id)
   res.render('tile', {
     tile: tile,
-    enums: JSON.stringify(enums),
     props: JSON.stringify(_.mapValues(tile.propDef || {}, (value) => {
       if (_.isPlainObject(value)) {
         return value.default
