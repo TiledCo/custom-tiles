@@ -876,6 +876,21 @@
 			"id": "retailCalculator",
 			"name": "Retail Calculator",
 			"shortName": "Retail Calculator"
+		},
+		{
+			"id": "remoteSheet",
+			"name": "Remote Sheet",
+			"shortName": "Retail Sheet",
+			"propDef": {
+				"apiKey": {
+					"type": "string",
+					"default": ""
+				},
+				"sheetId": {
+					"type": "string",
+					"default": ""
+				}
+			}
 		}
 	]
 }
