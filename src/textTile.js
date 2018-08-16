@@ -1,7 +1,7 @@
 const api = window.tiledAPI;
 
 const p = (px) => {
-  const scale = 1
+  const scale = 1;
   return `${(scale * (100 * px / window.innnerWidth)).toFixed(3)}em`;
 }
 
@@ -9,9 +9,9 @@ const TextAnim =
 `@keyframes Text--fade{
   0% {opacity: 0}
   100% {opacity: 1}
-}`
+}`;
 
-const stylesheet = document.styleSheets[0]
+const stylesheet = document.styleSheets[0];
 stylesheet.insertRule(TextAnim, stylesheet.cssRules.length);
 
 const mapAlt = (arr, fn1, fn2) => {
@@ -92,7 +92,7 @@ const element = document.getElementById('tile');
 Object.assign(element.style, style);
 
 // write default text
-element.innerHTML += `<link href='${'https://fonts.googleapis.com/css?family=' + api.props.fontFamily.replace(/ /g, '+')}' rel='stylesheet' />`
+element.innerHTML += `<link href='${'https://fonts.googleapis.com/css?family=' + api.props.fontFamily.replace(/ /g, '+')}' rel='stylesheet' />`;
 element.innerHTML += `<div id='custom-text'>${api.props.defaultText}</div>`;
 
 // if remote data, call url and replace text
