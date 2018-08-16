@@ -4,8 +4,8 @@
 
 ### Pre-requisites
 
-`npm install -g nodemon`
-`npm install -g eslint`
+- `npm install -g nodemon`
+- `npm install -g eslint`
 
 ### Install the node module requirements
 
