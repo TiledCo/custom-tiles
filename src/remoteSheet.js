@@ -33,7 +33,6 @@ class RemoteSheet extends Component {
     }
 
     const apiURL = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}?key=${apiKey}&includeGridData=true`
-
     fetch(apiURL, (response) => {
       this.setState({
         sheets: response.sheets.map(this.formatSheetData),
@@ -57,8 +56,12 @@ class RemoteSheet extends Component {
   }
 
   render() {
-    const { sheetId } = this.props
+    const { sheetId, apiKey } = this.props
     const { sheets, loaded } = this.state
+
+    if (!sheetId || !apiKey) {
+      return (<div>Please specify a valid `sheetId` and a valid `apiKey`</div>)
+    }
 
     return (
       <div>
