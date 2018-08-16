@@ -1,7 +1,16 @@
 # Tiled Custom Tile Studio
 
 ## Installation
+
+### Pre-requisites
+
+`npm install -g nodemon`
+`npm install -g eslint`
+
+### Install the node module requirements
+
 `npm install`
+
 
 ## Running the Studio
 1. Open 2 terminal windows / tabs
