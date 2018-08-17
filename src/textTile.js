@@ -26,7 +26,7 @@ const mapAlt = (arr, fn1, fn2) => {
 
 const addUrlArgs = () => {
   let url = api.props.remoteDataURL;
-  const email = api.props.$recipient && api.props.$recipient.email;
+  const email = api.props.recipient;
   if (url && email) {
     // already has query string
     if (url.indexOf('?') > -1) {

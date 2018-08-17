@@ -856,6 +856,10 @@
 					"type": "string",
 					"default": "Example: Access remote data --> remote data"
 				},
+				"recipient": {
+					"type": "string",
+					"default": ""
+				},
 				"remoteDataURL": {
 					"type": "string",
 					"default": ""
