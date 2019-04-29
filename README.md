@@ -29,6 +29,6 @@ As you build and test your tiles locally, the tile bundle will be automatically 
 
 1. Check the `dist` directory for your new folder (matching the name of your tile)
 2. Send the following items over to the Tiled development team by emailing us at dev@tiled.co:
-- tiles.json (with your new tile additions)
+- `tiles.json` (with your new tile additions)
 - Raw custom tile source (`src/yourNewTile.js`)
 - Built directory under the `dist` directory to the Tiled team (`dist/yourNewTile`)
