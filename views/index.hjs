@@ -92,6 +92,10 @@
       });
       */
 
+      $('#submissionInstructions').on('click', function(e) {
+        window.location.href = 'https://github.com/TiledCo/custom-tiles#submitting-tiles';
+      });
+
       $('.upload-btn').on('click', function(e) {
         e.stopPropagation();
 
@@ -166,24 +170,8 @@
         <a class="navbar-brand" href="#">Custom Tiles</a>
       </div>
       <form class="navbar-form navbar-right" id="authForm">
-        <div class="form-group">
-          <select id="apiUrl" class="form-control">
-            <option>http://localhost:3002</option>
-            <option>https://api-test.tiled.co</option>
-            <option>https://api.tiled.co</option>
-          </select>
-        </div>
-        <div id="authInputs" class="form-group">
-          <div class="form-group">
-            <input type="email" class="form-control" placeholder="email" id="email">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="password" id="password">
-          </div>
-          <button type="submit" class="btn btn-default">Authenticate</button>
-        </div>
         <div id="resetAuthInputs" class="hidden form-group">
-          <button id="resetAuthBtn" class="btn btn-default">Re-authenticate</button>
+          <button id="submissionInstructions" class="btn btn-default">Submitting tiles</button>
         </div>
       </form>
     </div>
