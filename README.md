@@ -1,6 +1,7 @@
 # Tiled Custom Tile Studio
 
 ## Installation
+TBD
 
 ### Pre-requisites
 
